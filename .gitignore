@@ -1,0 +1,6 @@
+venv
+report
+.pytest_cache
+.idea
+__pycache__
+PytestIntensive.iml
