@@ -7,7 +7,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 class TestPages: # Название тестового класса
     def setup(self):
         self.service = Service(ChromeDriverManager().install())
-        self.driver = webdriver.Chrome(service=self.service)
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')
+        self.driver = webdriver.Chrome(service=self.service, options=options)
 
     def test_open_login_page(self): # Тест пройдет
         self.driver.get("https://demoqa.com/login")

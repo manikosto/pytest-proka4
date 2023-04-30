@@ -15,7 +15,9 @@ class TestPages: # Название тестового класса
         self.driver.get("https://demoqa.com/login")
         assert self.driver.current_url == "https://demoqa.com/login", "Ошибка"
 
+
     @pytest.mark.smoke
+    @pytest.mark.regression
     @pytest.mark.regression
     def test_open_books_page(self): # Тест упадет
         self.driver.get("https://demoqa.com/books")
