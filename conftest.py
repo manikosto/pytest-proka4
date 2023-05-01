@@ -7,11 +7,18 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 
 
-@pytest.fixture
+@pytest.fixture(autouse=True)
 def browser(request):
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service)
     request.cls.driver = driver
+    yield # Ваш тест
+    driver.quit()
+
+@pytest.fixture(scope="function")
+def generate_login(request):
+    # Генерирует логин
+    request.cls.login = f"autotest_{time.time()}@hyper.org"
 
 @pytest.fixture
 def generate_data(request):

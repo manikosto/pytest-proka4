@@ -10,7 +10,7 @@ class TestLogin:
 
     # def setup(self):
     #     self.driver.get("https://www.freeconferencecall.com/login")
-
+    @pytest.mark.sss
     def test_login_in_account(self):
         self.driver.get("https://www.freeconferencecall.com/login")
         time.sleep(40)
